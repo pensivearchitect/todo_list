@@ -16,7 +16,8 @@ gem 'dry-struct'
 gem 'dry-monads'
 gem 'dry-matcher'
 gem 'sucker_punch'
-gem 'jsonapi-rails'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'oj'
 
 group :development, :test do
   gem 'awesome_print'

@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
-  deserializable_resource :task
   expose :task
   expose :tasks, -> { Task.all }
 
   def index
-    render jsonapi: Task.all,
-           # include: [dependencies: [:task]],
-           fields: { tasks: [:title, :priority]}
+    render json: Oj.dump(Task.includes(:dependencies, :tasks).all)
+    # render jsonapi: Task.all,
+    #        # include: [dependencies: [:task]],
+    #        fields: { tasks: [:title, :priority]}
   end
 
   private def create_params

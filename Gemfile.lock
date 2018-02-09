@@ -25,6 +25,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.7)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (5.2.0.rc1)
       activesupport (= 5.2.0.rc1)
       globalid (>= 0.3.6)
@@ -72,6 +77,8 @@ GEM
     capybara-selenium (0.0.6)
       capybara
       selenium-webdriver
+    case_transform (0.2)
+      activesupport
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
@@ -170,17 +177,7 @@ GEM
       rack (>= 1.0, < 3.0)
     json (2.1.0)
     json_pure (2.1.0)
-    jsonapi-deserializable (0.2.0)
-    jsonapi-parser (0.1.1)
-    jsonapi-rails (0.3.1)
-      jsonapi-parser (~> 0.1.0)
-      jsonapi-rb (~> 0.5.0)
-    jsonapi-rb (0.5.0)
-      jsonapi-deserializable (~> 0.2.0)
-      jsonapi-serializable (~> 0.3.0)
     jsonapi-renderer (0.2.0)
-    jsonapi-serializable (0.3.0)
-      jsonapi-renderer (~> 0.2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -231,6 +228,7 @@ GEM
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    oj (3.4.0)
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
@@ -391,6 +389,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers (~> 0.10.0)
   awesome_print
   bootsnap (>= 1.1.0)
   brakeman
@@ -407,9 +406,9 @@ DEPENDENCIES
   fabrication
   fasterer
   iodine
-  jsonapi-rails
   listen (>= 3.0.5, < 3.2)
   metric_fu
+  oj
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-doc
