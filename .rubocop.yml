@@ -1,0 +1,15 @@
+AllCops:
+  Exclude:
+    - 'db/**/*.rb'
+    - 'bin/**/*'
+    - 'spec/fabricators/**/*'
+Bundler/OrderedGems:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
