@@ -40,6 +40,7 @@ group :development do
   gem 'metric_fu', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'bullet', require: false
 end
 
 group :test do
