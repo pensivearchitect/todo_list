@@ -24,7 +24,7 @@ group :development, :test do
   gem 'bundler-audit', '>= 0.5.0', require: false
   gem 'fabrication'
   gem 'byebug', platform: :mri
-  gem 'pry-byebug'
+  gem 'pry-byebug', platform: :mri
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.6'
