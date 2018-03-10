@@ -28,7 +28,7 @@ class TodoList extends React.Component {
         };
     }
     componentDidMount() {
-        fetch('/tasks.json', {headers: new Headers({'Content-Type': 'application/json'})})
+        fetch('/tasks.json')
             .then(response => response.json())
             .then(tasks => this.setState({tasks: tasks}));
     }
