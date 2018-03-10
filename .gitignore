@@ -22,8 +22,8 @@
 /config/master.key
 
 .DS_Store
-/public/packs
-/public/packs-test
+/public/js
+/public/js-test
 /node_modules
 yarn-debug.log*
 .yarn-integrity
