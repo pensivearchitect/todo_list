@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get '/tasks', to: 'tasks#index'
+  root 'application#index'
+  get '/tasks', to: 'tasks#index', constraints: ->(req) { req.format == :json }
 end
