@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.0'
+ruby_version = File.read('.ruby-version').strip
+
+ruby ruby_version
 
 gem 'dotenv-rails'
 gem 'rails', '~> 5'
