@@ -11,15 +11,38 @@
         "useBuiltIns": true
       }
     ],
-    "react"
+    "react",
   ],
+  "env": {
+    "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "modules": "commonjs",
+            }
+          ], "react"],
+        "plugins": [
+          "transform-decorators-legacy",
+          "syntax-dynamic-import",
+          "transform-object-rest-spread",
+          [
+            "transform-class-properties",
+            {
+              "spec": false
+            }
+          ]
+        ]
+    }
+  },
   "plugins": [
+    "transform-decorators-legacy",
     "syntax-dynamic-import",
     "transform-object-rest-spread",
     [
       "transform-class-properties",
       {
-        "spec": true
+        "spec": false
       }
     ]
   ]

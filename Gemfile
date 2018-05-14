@@ -21,17 +21,21 @@ gem 'sucker_punch'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'oj'
 gem 'webpacker'
+gem 'puma'
 
 group :development, :test do
   gem 'awesome_print'
   gem 'bundler-audit', '>= 0.5.0', require: false
+  gem 'faker', require: false
+  gem 'rack-mini-profiler', require: false
   gem 'fabrication'
   gem 'byebug', platform: :mri
   gem 'pry-byebug', platform: :mri
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.6'
-  gem 'puma'
+  gem 'flamegraph'
+  gem 'stackprof'
 end
 
 group :development do
@@ -40,7 +44,6 @@ group :development do
   gem 'brakeman', require: false
   gem 'fasterer', require: false
   gem 'rubocop', require: false
-  gem 'metric_fu', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet', require: false
@@ -50,8 +53,4 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara-selenium'
   gem 'simplecov', require: false
-end
-
-group :production do
-  gem 'iodine'
 end

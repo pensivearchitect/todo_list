@@ -59,4 +59,5 @@ Rails.application.configure do
     Bullet.rails_logger = true
     Bullet.raise = true
   end
+  config.webpacker.check_yarn_integrity = false
 end
