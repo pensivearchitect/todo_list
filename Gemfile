@@ -5,7 +5,7 @@ ruby '2.5.1'
 
 # kill actioncable with fire
 rails_gems = %w[activerecord activemodel actionpack actionview actionmailer
-                activejob activesupport railties]
+                activejob activesupport railties activestorage]
 
 gem 'dotenv-rails'
 rails_gems.map { |g| gem g, '~> 5' }
@@ -20,7 +20,7 @@ gem 'dry-struct'
 gem 'dry-monads'
 gem 'dry-matcher'
 gem 'sucker_punch'
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'fast_jsonapi'
 gem 'oj'
 gem 'webpacker'
 gem 'puma'
