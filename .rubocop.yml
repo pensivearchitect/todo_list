@@ -3,6 +3,7 @@ AllCops:
     - 'db/**/*.rb'
     - 'bin/**/*'
     - 'spec/fabricators/**/*'
+    - 'node_modules/**/*'
 Bundler/OrderedGems:
   Enabled: false
 Metrics/LineLength:
@@ -11,5 +12,9 @@ Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/AccessModifierDeclarations:
+  Enabled: false
 Rails/HasManyOrHasOneDependent:
+  Enabled: false
+Lint/MissingCopEnableDirective:
   Enabled: false
