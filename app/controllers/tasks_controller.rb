@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   expose :tasks, -> { Task.all }
 
   def index
-    render json: Task.includes(:dependencies, :tasks).all
+    render json: TaskSerializer.new(Task.includes(:dependencies, :tasks).all)
   end
 
   private def create_params
