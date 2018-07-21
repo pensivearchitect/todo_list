@@ -5,8 +5,12 @@ ruby_version = File.read('.ruby-version').strip
 
 ruby ruby_version
 
+# kill actioncable with fire
+rails_gems = %w[activerecord activemodel actionpack actionview actionmailer
+                activejob activesupport railties]
+
 gem 'dotenv-rails'
-gem 'rails', '~> 5'
+rails_gems.map { |g| gem g, '~> 5' }
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
