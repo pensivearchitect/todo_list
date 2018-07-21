@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby_version = File.read('.ruby-version').strip
-
-ruby ruby_version
+ruby '2.5.1'
 
 # kill actioncable with fire
 rails_gems = %w[activerecord activemodel actionpack actionview actionmailer
