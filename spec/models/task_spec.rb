@@ -3,14 +3,16 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   it { should have_many(:dependencies) }
   it { should have_many(:tasks).through(:dependencies) }
+  it { should validate_numericality_of(:id) }
   it 'allows me to add tasks as dependencies' do
-    task = Task.create
-    dependency = Task.create
+    task = Fabricate.build(:task)
+    dependency = Fabricate.build(:task, id: 2)
     task.tasks << dependency
-    # task.tasks.length
     tasks = task.tasks
     predicate = tasks.first.id
-    # ap tasks[0]
     expect(predicate).to eq dependency.id
+  end
+  it 'is serialized by TaskSerializer' do
+    expect(described_class.serializer).to eq TaskSerializer
   end
 end
