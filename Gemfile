@@ -52,7 +52,7 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'capybara-selenium'
   gem 'simplecov', require: false
 end
