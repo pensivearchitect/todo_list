@@ -1,7 +1,5 @@
 # rubocop:disable Metrics/BlockLength
 Rails.application.configure do
-  # Verifies that versions and hashed value of the package contents in the project's package.json
-  config.webpacker.check_yarn_integrity = true
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -47,5 +45,4 @@ Rails.application.configure do
     Bullet.rails_logger = true
     Bullet.raise = true
   end
-  config.webpacker.check_yarn_integrity = false
 end
