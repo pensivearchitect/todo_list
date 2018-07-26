@@ -24,6 +24,7 @@ gem 'fast_jsonapi'
 gem 'oj'
 gem 'webpacker'
 gem 'puma'
+gem 'closure_tree', github: 'ClosureTree/closure_tree'
 
 group :development, :test do
   gem 'awesome_print'

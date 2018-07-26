@@ -10,32 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_03_002157) do
+ActiveRecord::Schema.define(version: 2018_07_25_230818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dependencies", force: :cascade do |t|
-    t.bigint "task_id"
-    t.bigint "dependent_task_id"
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "reminder_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "dependents_count", default: 0
-    t.index ["dependent_task_id"], name: "index_dependencies_on_dependent_task_id"
-    t.index ["task_id", "dependent_task_id"], name: "index_dependencies_on_task_id_and_dependent_task_id", unique: true
-    t.index ["task_id"], name: "index_dependencies_on_task_id"
+  end
+
+  create_table "chunk_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "chunk_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "chunk_desc_idx"
+  end
+
+  create_table "chunks", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.time "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "parent_id"
+  end
+
+  create_table "facets", force: :cascade do |t|
+    t.bigint "task_id"
+    t.bigint "chunk_id"
+    t.bigint "person_id"
+    t.bigint "appointment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_facets_on_appointment_id"
+    t.index ["chunk_id"], name: "index_facets_on_chunk_id"
+    t.index ["person_id"], name: "index_facets_on_person_id"
+    t.index ["task_id", "person_id", "appointment_id"], name: "fk_uniqueness_constraint", unique: true
+    t.index ["task_id"], name: "index_facets_on_task_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "phone_number"
+    t.string "address"
+    t.string "email"
+    t.date "birthdate"
+    t.string "preferred_name"
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "title"
-    t.string "details"
     t.datetime "due_date"
     t.integer "priority"
     t.integer "completion_time"
-    t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "dependencies_count", default: 0
   end
 
+  add_foreign_key "facets", "appointments"
+  add_foreign_key "facets", "people"
+  add_foreign_key "facets", "tasks"
 end

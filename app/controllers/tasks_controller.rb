@@ -1,23 +1,25 @@
 class TasksController < ApplicationController
   expose :task
-  expose :tasks, -> { Task.all }
+  expose :tasks, -> { Task.includes(:facets, :chunks).all }
+  respond_to :json
 
   def index
-    render json: Task.serialize(Task.includes(:dependencies, :tasks).all), status: :ok
+    render json: TaskSerializer.new(tasks).serialized_json
   end
 
   def create
-    render json: Task.serialize(task), status: :ok && return if task.save(task_params)
-    render status: :unprocessable_entity
+    render json: task && return if task.save(task_params)
+    render json: task.errors
   end
 
   def update
-    render json: Task.serialize(task), status: :ok && return if task.update(task_params)
-    render status: :unprocessable_entity
+    render json: task && return if task.update(task_params)
+    render json: task.errors
   end
 
   def destroy
-    render json: {}, status: :ok if task.destroy
+    render json: task && return if task.destroy
+    render json: task.errors
   end
 
   private def task_params

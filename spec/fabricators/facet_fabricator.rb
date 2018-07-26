@@ -1,0 +1,2 @@
+Fabricator(:facet) do
+end

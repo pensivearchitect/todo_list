@@ -3,7 +3,7 @@ AllCops:
     - 'db/**/*.rb'
     - 'bin/**/*'
     - 'spec/fabricators/**/*'
-    - 'node_modules/**/*'
+    - 'frontend/node_modules/**/*'
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'

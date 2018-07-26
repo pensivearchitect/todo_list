@@ -10,6 +10,7 @@ class ApplicationSerializer
   include FastJsonapi::ObjectSerializer
   @serializer_map = {}
   @serializer_list = []
+
   def self.serializers
     @serializer_map
   end
@@ -23,7 +24,7 @@ class ApplicationSerializer
   end
 
   def self.eager_load
-    load_path = "#{Rails.root}/app/serializers"
+    load_path = Rails.root.join 'app', 'serializers'
     matcher = %r{ \A#{Regexp.escape(load_path)}\/(.*)\.rb\Z }
     Dir.glob("#{load_path}/*.rb").each do |file|
       require_dependency file.sub(matcher, '\1')

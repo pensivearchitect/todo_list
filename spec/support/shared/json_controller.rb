@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.shared_examples 'for_json_controller_routing' do
   let(:controller) { described_class.controller_name.parameterize }
+  let(:path) { "/api/v1/#{controller}" }
   it do
-    should route(:get, "#{controller}.json")
+    should route(:get, "#{path}.json")
       .to(controller: controller,
           action: :index,
           format: :json)
@@ -12,28 +13,28 @@ RSpec.shared_examples 'for_json_controller_routing' do
     Fabricate.create(controller.singularize.to_sym, id: 1)
   end
   it do
-    should route(:get, "#{controller}/1.json")
+    should route(:get, "#{path}/1.json")
       .to controller: controller,
           action: :show,
           id: 1,
           format: :json
   end
   it do
-    should route(:patch, "#{controller}/1.json")
+    should route(:patch, "#{path}/1.json")
       .to controller: controller,
           action: :update,
           id: 1,
           format: :json
   end
   it do
-    should route(:put, "#{controller}/1.json")
+    should route(:put, "#{path}/1.json")
       .to controller: controller,
           action: :update,
           id: 1,
           format: :json
   end
   it do
-    should route(:delete, "#{controller}/1.json")
+    should route(:delete, "#{path}/1.json")
       .to controller: controller,
           action: :destroy,
           id: 1,
@@ -73,7 +74,7 @@ RSpec.shared_examples 'for_json_controller' do
   describe '#destroy' do
     it do
       delete :destroy, params: { id: 1 }
-      expect(response.status).to eq 200
+      expect(response.status).to eq 204
     end
   end
 end

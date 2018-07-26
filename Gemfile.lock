@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/ClosureTree/closure_tree.git
+  revision: 5d44d22023b8c1537cbe559354c6be3694a07102
+  specs:
+    closure_tree (6.6.0)
+      activerecord (>= 4.1.0)
+      with_advisory_lock (>= 3.0.0)
+
+GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: c0960bd72dd41c4e9bd8b4375254f539776bfe95
   specs:
