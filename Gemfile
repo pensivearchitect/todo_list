@@ -22,9 +22,10 @@ gem 'dry-matcher'
 gem 'sucker_punch'
 gem 'fast_jsonapi'
 gem 'oj'
-gem 'webpacker'
 gem 'puma'
 gem 'closure_tree', github: 'ClosureTree/closure_tree'
+gem 'ember-cli-rails'
+gem 'responders'
 
 group :development, :test do
   gem 'awesome_print'

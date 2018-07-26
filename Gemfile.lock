@@ -81,6 +81,9 @@ GEM
       selenium-webdriver
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.2)
     colorize (0.8.1)
     concurrent-ruby (1.0.5)
@@ -130,6 +133,12 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.13.1)
+    ember-cli-rails (0.10.0)
+      cocaine (~> 0.5.8)
+      ember-cli-rails-assets (~> 0.6.2)
+      html_page (~> 0.1.0)
+      railties (>= 3.2)
+    ember-cli-rails-assets (0.6.2)
     erubi (1.7.1)
     fabrication (2.20.1)
     faker (1.9.1)
@@ -143,6 +152,7 @@ GEM
     flamegraph (0.9.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    html_page (0.1.0)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
@@ -213,6 +223,9 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -272,6 +285,8 @@ GEM
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
+    with_advisory_lock (4.0.0)
+      activerecord (>= 4.2)
     xpath (3.1.0)
       nokogiri (~> 1.8)
     yard (0.9.15)
@@ -295,6 +310,7 @@ DEPENDENCIES
   bundler-audit (>= 0.5.0)
   byebug
   capybara-selenium
+  closure_tree!
   decent_exposure
   dotenv-rails
   dry-matcher
@@ -302,6 +318,7 @@ DEPENDENCIES
   dry-struct
   dry-types
   dry-validation
+  ember-cli-rails
   fabrication
   faker
   fast_jsonapi
@@ -318,6 +335,7 @@ DEPENDENCIES
   rack-cors
   rack-mini-profiler
   railties (~> 5)
+  responders
   rspec-rails (~> 3.6)
   rubocop
   shoulda-matchers!
